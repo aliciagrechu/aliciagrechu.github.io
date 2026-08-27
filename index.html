@@ -443,6 +443,55 @@
     font-size: 0.75rem;
   }
 
+  .contrib-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 28px;
+  }
+
+  .contrib-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+
+  .contrib-row:first-child { padding-top: 0; border-top: none; }
+
+  .contrib-row-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.63rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    flex: 0 0 150px;
+    padding-top: 6px;
+  }
+
+  .contrib-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .contrib-tag {
+    font-size: 0.8rem;
+    color: var(--text);
+    background: rgba(196,181,253,0.05);
+    border: 1px solid var(--border);
+    padding: 7px 14px;
+    border-radius: 8px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 700px) {
+    .contrib-row { flex-direction: column; gap: 10px; }
+    .contrib-row-label { flex: none; }
+  }
+
   .project-link {
     display: inline-flex;
     align-items: center;
@@ -612,7 +661,7 @@
         <div class="card-text">Games have a unique power to make people <strong>feel something real</strong>. That's what drives my work — crafting player experiences that resonate, linger, and actually mean something.</div>
       </div>
 
-      <div class="about-card wide reveal">
+      <div class="about-card reveal">
         <div class="card-icon">[ PRODUCTION ]</div>
         <div class="card-title">VP of Technology — USC Open Alpha</div>
         <div class="card-text">Leading the programming team while owning a <strong>production</strong> role across the org — <strong>building the conditions for great work to ship</strong>. That means managing the club's <strong>GitHub</strong>, handling <strong>itch.io & Steam releases</strong>, and keeping <strong>communication</strong> flowing between programming leads and cross-department leads. I help keep the <strong>timeline</strong> on track — making sure every team is pacing well and staying aligned — plus anything else tech-related across the club.</div>
@@ -762,31 +811,31 @@
         <p class="project-desc">
           Joined an indie startup studio in Summer 2026 as a gameplay programming intern on a narrative-driven adventure game, and stayed on with the team into the fall semester — since promoted to Programming Lead.
         </p>
-        <div class="project-columns">
-          <div class="contrib-group">
-            <div class="contrib-label">As Gameplay Programmer</div>
-            <ul class="contrib-list">
-              <li>Health system</li>
-              <li>Stats system</li>
-              <li>Game UI, including the HUD</li>
-            </ul>
+        <div class="contrib-rows">
+          <div class="contrib-row">
+            <div class="contrib-row-label">Gameplay<br>Programmer</div>
+            <div class="contrib-tags">
+              <span class="contrib-tag">Health system</span>
+              <span class="contrib-tag">Stats system</span>
+              <span class="contrib-tag">Game UI, including the HUD</span>
+            </div>
           </div>
-          <div class="contrib-group">
-            <div class="contrib-label">As Programming Lead</div>
-            <ul class="contrib-list">
-              <li>Overseeing the game's codebase & guiding technical direction</li>
-              <li>Establishing code structure & organization</li>
-              <li>Making key implementation decisions</li>
-              <li>Managing GitHub workflow — PRs, code reviews, merge conflict resolution</li>
-              <li>Creating & assigning programming tasks</li>
-            </ul>
+          <div class="contrib-row">
+            <div class="contrib-row-label">Programming<br>Lead</div>
+            <div class="contrib-tags">
+              <span class="contrib-tag">Overseeing the codebase & technical direction</span>
+              <span class="contrib-tag">Code structure & organization</span>
+              <span class="contrib-tag">Implementation decisions</span>
+              <span class="contrib-tag">GitHub workflow — PRs, reviews, merge conflicts</span>
+              <span class="contrib-tag">Creating & assigning tasks</span>
+            </div>
           </div>
-          <div class="contrib-group">
-            <div class="contrib-label">Cross-Team</div>
-            <ul class="contrib-list">
-              <li>Working closely with the design team on technical implementation</li>
-              <li>Aligning programming work with the broader dev team's needs</li>
-            </ul>
+          <div class="contrib-row">
+            <div class="contrib-row-label">Cross-Team</div>
+            <div class="contrib-tags">
+              <span class="contrib-tag">Partnering with design on technical implementation</span>
+              <span class="contrib-tag">Aligning work with the broader dev team's needs</span>
+            </div>
           </div>
         </div>
         <span class="link-soon">
