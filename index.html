@@ -1096,9 +1096,18 @@ const PROJECTS = [
     video: null,
     blurb: 'Pong, written from scratch in C++. No engine, no AI assistance, every line mine.',
     note: 'Needs your words: what you had to build yourself here (game loop, collision, input, scoring), and what surprised you.',
-    did: [],
+    did: [
+      'A hand-written game loop that runs ProcessInput, UpdateGame, and GenerateOutput every frame, plus initialization and shutdown',
+      'Frame-rate-independent movement using delta time calculated from SDL_GetTicks, the difference between this frame\u2019s time and the previous frame\u2019s',
+      'Collect keyboard input by grabbing the state of the entire keyboard and testing individual keys',
+      'A basic game object model where the ball, paddle, and walls are all "actors", each with a Transform for position and size',
+      'Paddle movement clamped to the screen, with the ball bouncing off the wall and paddle',
+    ],
     hard: [],
-    took: [],
+    took: [
+      'How a game loop actually works underneath an engine like Unity',
+      'Debugging with breakpoints, the call stack, and variable inspection in CLion'
+    ],
     links: []
   },
   {
@@ -1111,9 +1120,19 @@ const PROJECTS = [
     video: null,
     blurb: 'Asteroids, written from scratch in C++.',
     note: 'Needs your words: vector movement, screen wrapping, how you handled splitting asteroids and collision.',
-    did: [],
+    did: [
+      'A hybrid component model where an Actor has a vector of component pointers but is also inheritable',
+      'A main Actor class and Component class (reused in my future C++ games), as well as subclasses like "Ship" and "CollisionComponent"',
+      'Calculated basic WASD ship movement ship rotation using vectors'
+      'Actor lifecycle management: actors register and unregister themselves with the game in their constructor and destructor, with destruction deferred until after the update loop',
+      'Sprite rendering integrated into the game, sorted by draw order so lower draw orders render first',
+      'A texture cache so each image loads once, optimizing the amount of times sprites are being loaded in',
+      'Created asteroid actors that can be destroyed by a laser actor fired from the ship upon SPACE key pressed',
+    ],
     hard: [],
-    took: [],
+    took: [
+      'Foundational understanding of how classes and subclasses work when it comes to raw game programming. I was pretty familiar with Unity before taking this class, so I feel like I\u2019m also building my understanding of how game engines work behind the scenes',
+    ],
     links: []
   },
   {
@@ -1126,14 +1145,25 @@ const PROJECTS = [
     video: null,
     blurb: 'Frogger, written from scratch in C++.',
     note: 'Needs your words: grid movement, the lane and timing system, collision against moving obstacles.',
-    did: [],
+    did: [
+      'A level loader that reads a text file where each character represents a 32x32 square in a grid, spawning cars, trucks, logs, the frog, and the goal',
+      'Vehicle, Log, and Frog actor subclasses, as well as a new Wrap component to make logs and vehicles wrap around the screen as they move',
+      'An AABB collision component with GetMin, GetMax, Intersect, and GetMinOverlap, verified against unit tests on GitHub Actions',
+      'Frog death and respawn: getting hit or missing a log in the water leaves a DeadFrog at the spot and repositions the frog to the start',
+      'Riding logs across the river',
+      'A "safe driver" feature: Vehicles will move slower when the frog is in front of them, which is implemented using scalar projection'
+    ],
     hard: [],
-    took: [],
+    took: [
+      'How to use / process a text file as the level map',
+      'Death and respawn functionality',
+      'How to apply math, specifically linear algebra, to game programming'
+    ],
     links: []
   },
   {
     id: 'more',
-    title: 'Five more coming',
+    title: 'Five more coming soon, including Zelda and Portal!',
     kind: 'cpp',
     tags: ['C++', 'this semester'],
     locked: true
