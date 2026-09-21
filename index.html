@@ -382,12 +382,35 @@
     display: flex;
     align-items: baseline;
     gap: 12px;
+    width: 100%;
     padding: 12px 14px;
     margin-bottom: 10px;
+    text-align: left;
+    font: inherit;
+    color: inherit;
     background-color: var(--paper-2);
     border: 2px solid var(--ink);
     border-left-width: 9px;
     box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.08s ease, box-shadow 0.08s ease, background-color 0.12s ease;
+  }
+
+  button.cart:hover { background-color: var(--paper-3); }
+  button.cart:hover .cart-more { background-color: var(--gold); color: var(--btn-on-text); }
+
+  button.cart:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 var(--ink);
+  }
+
+  .cart-more {
+    font-family: var(--pixel);
+    font-size: 0.62rem;
+    padding: 3px 7px 2px;
+    border: 2px solid var(--ink);
+    align-self: center;
+    flex: none;
   }
 
   .cart b {
@@ -829,10 +852,10 @@
 
         <div class="prose">
           <p class="pull">A passionate Computer Engineering and Computer Science major at USC, minoring in Video Game Programming.</p>
-          <p>Games pull at me from two directions at once, the technical side and the production side, and I've never really wanted to pick one. The games that stay with me are the ones that make you feel something you haven't felt before. My two favorites are Subnautica and Detroit: Become Human, both for their writing.</p>
-          <p>Outside of games I just like engineering. Making things, having ideas, working out how something should actually function.</p>
-          <p>The other half is leadership. I've always ended up being the person organizing the group, which is most of why production interests me as much as programming does. At Open Alpha, USC's game dev club, I'm VP of Technology on the executive board, and the board manages production of one unique game every semester. My term runs Fall 2026 through Spring 2027, so I'll see two new games through! This role is almost purely production, whilst being the technical head for the team. My focus is on maintaining technical aspects including version control and game builds, as well as developing and teaching Unity/C# curriculum to new programming team members. Additionally, I'm also the programming lead at an indie game startup! Here I work on the creation and distribution of weekly tasks for the programming team, ensuring production stays on track, as well as contributing to the codebase as much as I can. Primarily, I design tasks, do code reviews, handle version control including merging pull requests, and provide mentorship for the programming team.</p>
-          <p>I love what I do, and I'm always looking for more chances to grow, as a developer and as a person.</p>
+          <p>Games pull at me from two directions at once, the technical side and the production side, and I've never really wanted to pick one. The games that stay with me are the ones that make you feel something and have a lasting impact on players. Some of my favorites are Subnautica and Detroit: Become Human for their captivating narrative, and Face of Another and Celeste for their unique mechanics.</p>
+          <p>Outside of games I love engineering. Making things, having ideas, figuring out how something should actually function. Given my major, I've worked a lot on integrating hardware and software together to make some cool projects! My favorite project so far has been recreating an old Mario game written fully in Verilog code and running on an FPGA board.</p>
+          <p>Another big part of my drive is leadership, which is most of why production interests me as much as programming does. Right now I get to do both: I'm VP of Technology at Open Alpha, USC's game dev club, and the programming lead at an indie game startup.</p>
+          <p>I love what I do, and I'm always looking for more opportunities to grow, as a developer and as a person.</p>
         </div>
       </div>
     </div>
@@ -840,26 +863,31 @@
     <div class="shelf">
       <div>
         <h2>Where I am right now</h2>
-        <div class="cart cart-green">
+        <button class="cart cart-green" type="button" data-role="startup">
           <b>Programming Lead</b>
           <small>indie game startup</small>
-        </div>
-        <div class="cart cart-blue">
+          <span class="cart-more">more</span>
+        </button>
+        <button class="cart cart-blue" type="button" data-role="openalpha">
           <b>VP of Technology</b>
-          <small>Open Alpha eboard, 2026–27</small>
-        </div>
+          <small>Open Alpha eboard</small>
+          <span class="cart-more">more</span>
+        </button>
       </div>
 
       <div>
-        <h2>Skills</h2>
+        <h2>Relevant Skills</h2>
         <ul class="skills">
           <li class="skill">Video game programming</li>
           <li class="skill">Video game production</li>
-          <li class="skill">Unity</li>
-          <li class="skill">Unreal Engine, including Blueprints</li>
           <li class="skill">C++</li>
+          <li class="skill">Unity</li>
+          <li class="skill">Unreal Engine</li>
           <li class="skill">C#</li>
+          <li class="skill">Java</li>
           <li class="skill">Leadership</li>
+          <li class="skill">Organization</li>
+          <li class="skill">Teamwork</li>
         </ul>
       </div>
     </div>
@@ -867,7 +895,7 @@
     <div class="deco" id="deco-home"></div>
 
     <div class="contact">
-      <h2>Get in touch</h2>
+      <h2>Get in touch!</h2>
       <div class="links">
         <a class="link" href="mailto:aliciagrechu@gmail.com">Email</a>
         <a class="link" href="https://github.com/aliciagrechu" target="_blank" rel="noopener">GitHub</a>
@@ -931,23 +959,26 @@ const PROJECTS = [
     tags: ['Gameplay programmer', 'Unity, C#', 'Jan–May 2026'],
     cover: 'llm-cover.png',
     video: null,
-    blurb: 'A satirical 2D browser game where you play the AI chatbot running a local senator\u2019s campaign. Every minigame, from redacting files to cleaning up photos, is a chance to help him or quietly sink him. The dialogue branches and the ending depends on what you chose.',
-    note: 'Draft copy. Rewrite the bullets below in your own words, then delete this note.',
+    blurb: 'A satirical 2D browser game where you impersonate an AI chatbot to help a local senator\u2019s campaign. Every minigame, from redacting files to cleaning up photos, is a chance to help him or quietly sink him. The dialogue branches and the ending depends on what you chose.',
     did: [
       'Core gameplay mechanics and the systems logic underneath them',
       'NPC behavior',
       'UI and player feedback',
-      'Main character animation'
+      'Implemented character animations'
     ],
     hard: [
       'Wiring several gameplay systems together across a large team',
-      'Getting the minigame scenes to hand off to each other cleanly'
+      'Getting the minigame scenes to hand off to each other cleanly',
+      'Game / scene sequencing'
     ],
     took: [
-      'Animation state machines in Unity',
-      'Keeping code organized when a lot of people are touching it'
+      'Gained more experience using Unity',
+      'Built upon my understanding of integrating various gameplay systems',
+      'Keeping code organized when a lot of people are working on the same project'
     ],
-    links: []
+    links: [
+      { label: 'Play on itch.io', url: 'https://open-alpha-usc.itch.io/large-language-mimic' }
+    ]
   },
   {
     id: 'neuromancer',
@@ -956,20 +987,19 @@ const PROJECTS = [
     tags: ['Gameplay programmer', 'Unity, C#', 'Sep–Dec 2025'],
     cover: 'neuromancer-cover.png',
     video: 'https://www.youtube.com/embed/jCNF8_JqKMw',
-    blurb: 'A 2D fantasy game about a wizard who does therapy. You have one week to figure out each patient, and you treat them with a mix of advice and potions you brew yourself.',
-    note: 'Draft copy. Rewrite the bullets below in your own words, then delete this note.',
+    blurb: 'A 2D fantasy game where you play as a wizard with the goal of treating monsters using therapy and potions. You have one week to converse with various creatures and diagnose them using your trusty book of ailments, and you treat them with a mix of advice and potions you brew yourself.',
     did: [
       'Object interaction systems for books and potions',
       'Menus, the day system, and the timers driving it',
-      'Character UI'
     ],
     hard: [
       'Player movement and collision against Unity\u2019s physics',
       'Making my systems line up with everyone else\u2019s'
     ],
     took: [
-      'My first real taste of building a game with a structured team',
-      'Writing gameplay code in modules instead of one pile'
+      'My first real taste of building a game and working with a large, structured team',
+      'Writing modular gameplay code',
+      'How dialogue systems in games work'
     ],
     links: [
       { label: 'Play on itch.io', url: 'https://open-alpha-usc.itch.io/neuromancer' }
@@ -982,34 +1012,51 @@ const PROJECTS = [
     tags: ['Programming lead', 'Unreal Engine', 'Summer 2026 – now'],
     cover: null,
     video: null,
-    blurb: 'I joined an indie startup studio as a gameplay programming intern on a narrative adventure game, stayed on with the team into the fall, and now lead the programming side.',
-    note: 'Draft copy. Also: check what you\u2019re allowed to name here, and delete this note.',
+    blurb: 'I joined an indie startup studio as a gameplay programming intern on a narrative adventure game over the summer. I stayed on with the team into the fall semester, and now lead the entire programming department.',
     did: [
-      'Health and stats systems',
-      'Game UI, including the HUD',
-      'Codebase structure and the technical calls that go with it',
-      'GitHub workflow: pull requests, reviews, untangling merges',
-      'Writing and handing out tasks to the programming team',
-      'Working with design so what gets built matches what they pictured'
+      'Developed the health and stats systems',
+      'Worked on game UI, including the Gameplay HUD, implementing tab switchers that bind to input actions and on-click button functions',
+      'Restructured the codebase to make it more orderly',
+      'Facilitate the technical calls that come to how we implement systems',
+      'GitHub workflow: pull requests, leading code reviews, untangling merge conflicts',
+      'Creating and assigning tasks to the programming team via a Kanban board, ensuring production stays on schedule',
+      'Working closely with design so what gets built matches what they pictured, with the help of provided user stories'
     ],
-    hard: [],
-    took: [],
+    hard: [
+      'This project was my first time working in Unreal Engine, which brough a big learning curve. I had little familiarity with how blueprints work'
+      'Merge conflicts. Hours of hair pulling'
+      'Managing many programmers at once and ensuring the team follows production timeline',
+    ],
+    took: [
+      'Became proficient with using GitHub version control',
+      'Developed a strong understanding of how Unreal Engine blueprints work, including references, different types of blueprints (WBPs, BPIs, MLs, etc) and components',
+      'Recognized the important of organization, active communication, and code reviews when it comes to leading programming and production'
+    ],
     links: []
   },
   {
     id: 'jam',
-    title: 'Prehistoric Jam Game',
+    title: 'History Repeats Itself',
     kind: 'jam',
     tags: ['Sole programmer', 'Unity, 3D', '72 hours'],
     cover: null,
     video: null,
-    blurb: 'A 3D game made in three days on the theme "prehistoric," with an artist, a designer, and me.',
-    note: 'Needs your words: which jam, the game\u2019s name, what you built, what broke at 2am, and a link if it\u2019s playable.',
+    blurb: 'A 3D mystery / escape room style game made in three days for a game jam based on the theme "prehistoric," alongside an artist a designer. The game takes place thousands of years in the future in a post-apocalyptic Earth. You play as a robot who spawns in an old underground human bunker with the goal of bringing the antidote to a deadly disease up to the surface before there are no more humans left. Given that the game takes place in the future, everything seen in the old human bunker seems prehistoric to the robot.',
     did: [
-      'All programming on the project'
+      'All of the programming for the project! Including player movement mechanics, game progress sequencing through unlocking doors, item interaction mechanics, UI popups with letters to read, and an elevator that activates on trigger for the ending sequence',
+      'Managing version control and resolving merge conflicts from art asset overrides',
+      'Collaborating with my team to develop an interesting and outside the box game idea that we are all proud of'
     ],
-    hard: [],
-    took: [],
+    hard: [
+      'Coming up with a cohesive narrative in a short period of time',
+      'Working under time pressure',
+      'Ensuring code is easily adjustable via inspector for my designer and artist to do their work in-engine'
+    ],
+    took: [
+      'My first game jam!',
+      'Rapid ideation and prototyping',
+      'Hot fixing bugs in the very last minute'
+    ],
     links: []
   },
   {
@@ -1019,11 +1066,26 @@ const PROJECTS = [
     tags: ['Team project', 'Verilog', 'Spring 2026'],
     cover: null,
     video: null,
-    blurb: 'A 2D Super Mario Bros recreation written in Verilog and run on an FPGA, drawing to a display directly from hardware. No engine and no processor underneath it, just logic. It\u2019s buggy and it was still one of my favorite things I\u2019ve built.',
-    note: 'Needs your words: which board, how you got sprites onto the display, what you owned versus your teammates, and which bugs you never did squash.',
-    did: [],
-    hard: [],
-    took: [],
+    blurb: 'A 2D Super Mario Bros recreation written in Verilog that uses an FPGA board for a controller, drawing to a VGA output display directly from hardware. No engine and no processor underneath it, just logic. It\u2019s buggy, but it\u2019s still one of my favorite things I\u2019ve worked on.',
+    did: [
+      'Discovered how deltatime and framerate calculations work',
+      'Created collision components and controller components for every single object in the game',
+      'Designed a gameplay state machine to track game progress',
+      'Made a coin collecting system to tracked player\u2019s points',
+      'Hooked up the score count, lives count, and win/lose state to display output on the FPGA board',
+      'Hand drew all sprite assets using Aeseprite, and then converted them to ROM files using a Python script so Verilog could use the drawings as sprites'
+    ],
+    hard: [
+      'Verilog was not meant for game development! Using it was quite a challenge',
+      'Ensuring assets spawn in the correct place on the screen which required a lot of mathematical calculations',
+      'Implementing the scrolling background for the level, which we had to scale back to just a background scene swap. This meant destroying old game objects and spawning new ones based on players reaching the far right of the screen',
+      'A bug that we never quite got around to solving was Mario had started falling through the floor upon the scene switch, so in the current version there is technically no way to reach the finish line'
+    ],
+    took: [
+      'My first game made outside of a game programming engine!',
+      'Learned about aspects of how games are coded at a very low level, including doing math involving clock ticks and figuring out synchronization',
+      'Learned how wires, inputs, registers, and loops work in Verilog'
+    ],
     links: [
       { label: 'View on GitHub', url: 'https://github.com/aliciagrechu/EE354-FinalProject' }
     ]
@@ -1137,7 +1199,7 @@ function openSheet(p) {
         ${p.video ? `<div class="frame"><iframe src="${esc(p.video)}" title="${esc(p.title)} trailer" allowfullscreen loading="lazy"></iframe></div>` : ''}
         ${p.code ? `<p class="aside">${esc(p.code)}</p>` : ''}
         ${p.note ? `<div class="note">${esc(p.note)}</div>` : ''}
-        ${blockOf('What I built', p.did)}
+        ${blockOf(p.didLabel || 'What I built', p.did)}
         ${blockOf('What was hard', p.hard)}
         ${blockOf('What I took away', p.took)}
         ${(p.links && p.links.length)
@@ -1166,6 +1228,46 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeSheet();
 });
 
+
+/* ==================================================================
+   ROLES — the detail sheets behind the two "Where I am right now"
+   cards on the home page.
+   ================================================================== */
+const ROLES = {
+  openalpha: {
+    title: 'VP of Technology',
+    kind: 'club',
+    tags: ['Open Alpha', 'Executive board', 'Fall 2026 – Spring 2027'],
+    blurb: 'Open Alpha is USC\u2019s game dev club, and the executive board manages production of one unique game every semester. My term runs Fall 2026 through Spring 2027, so I\u2019ll see two new games through! The role is almost purely production, and I\u2019m also the technical head for the team.',
+    didLabel: 'What I do',
+    did: [
+      'Maintaining the club\u2019s version control and game builds',
+      'Developing the Unity/C# curriculum for new programming team members',
+      'Teaching that curriculum to the new programmers'
+    ]
+  },
+  startup: {
+    title: 'Programming Lead',
+    kind: 'studio',
+    tags: ['Indie game startup', 'Unreal Engine', 'Summer 2026 – now'],
+    blurb: 'I joined over the summer as a gameplay programming intern and stayed on to lead the programming team. I still contribute to the codebase as much as I can, but most of the job now is keeping the team moving.',
+    didLabel: 'What I do',
+    did: [
+      'Designing and handing out weekly tasks for the programming team',
+      'Keeping production on track',
+      'Code reviews',
+      'Version control, including merging pull requests',
+      'Mentoring the programmers'
+    ]
+  }
+};
+
+document.querySelectorAll('[data-role]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const r = ROLES[btn.dataset.role];
+    if (r) openSheet(r);
+  });
+});
 
 /* ==================================================================
    STICKERS — edit freely.
@@ -1290,7 +1392,9 @@ function show(name) {
   const target = document.getElementById(name) ? name : 'home';
   document.querySelectorAll('.page').forEach(s => s.classList.toggle('is-open', s.id === target));
   buttons.forEach(b => b.classList.toggle('is-on', b.dataset.page === target));
-  if (location.hash.slice(1) !== target) history.replaceState(null, '', '#' + target);
+  try {
+    if (location.hash.slice(1) !== target) history.replaceState(null, '', '#' + target);
+  } catch (e) { /* sandboxed preview: no real URL to write to */ }
   window.scrollTo(0, 0);
 }
 
@@ -1299,4 +1403,4 @@ window.addEventListener('hashchange', () => show(location.hash.slice(1)));
 show(location.hash.slice(1) || 'home');
 </script>
 </body>
-</html>
+</html> 
