@@ -10,8 +10,6 @@
 <style>
   /* ============================================================
      PALETTE + TYPE TOKENS
-  /* ============================================================
-     PALETTE + TYPE TOKENS
      Dusk: night-arcade indigo with warm accents.
      ============================================================ */
   :root {
@@ -1023,14 +1021,14 @@ const PROJECTS = [
       'Working closely with design so what gets built matches what they pictured, with the help of provided user stories'
     ],
     hard: [
-      'This project was my first time working in Unreal Engine, which brough a big learning curve. I had little familiarity with how blueprints work'
-      'Merge conflicts. Hours of hair pulling'
+      'This project was my first time working in Unreal Engine, which brought a big learning curve. I had little familiarity with how blueprints work',
+      'Merge conflicts. Hours of hair pulling',
       'Managing many programmers at once and ensuring the team follows production timeline',
     ],
     took: [
       'Became proficient with using GitHub version control',
       'Developed a strong understanding of how Unreal Engine blueprints work, including references, different types of blueprints (WBPs, BPIs, MLs, etc) and components',
-      'Recognized the important of organization, active communication, and code reviews when it comes to leading programming and production'
+      'Recognized the importance of organization, active communication, and code reviews when it comes to leading programming and production'
     ],
     links: []
   },
@@ -1041,7 +1039,7 @@ const PROJECTS = [
     tags: ['Sole programmer', 'Unity, 3D', '72 hours'],
     cover: null,
     video: null,
-    blurb: 'A 3D mystery / escape room style game made in three days for a game jam based on the theme "prehistoric," alongside an artist a designer. The game takes place thousands of years in the future in a post-apocalyptic Earth. You play as a robot who spawns in an old underground human bunker with the goal of bringing the antidote to a deadly disease up to the surface before there are no more humans left. Given that the game takes place in the future, everything seen in the old human bunker seems prehistoric to the robot.',
+    blurb: 'A 3D mystery / escape room style game made in three days for a game jam based on the theme "prehistoric," alongside an artist and a designer. The game takes place thousands of years in the future in a post-apocalyptic Earth. You play as a robot who spawns in an old underground human bunker with the goal of bringing the antidote to a deadly disease up to the surface before there are no more humans left. Given that the game takes place in the future, everything seen in the old human bunker seems prehistoric to the robot.',
     did: [
       'All of the programming for the project! Including player movement mechanics, game progress sequencing through unlocking doors, item interaction mechanics, UI popups with letters to read, and an elevator that activates on trigger for the ending sequence',
       'Managing version control and resolving merge conflicts from art asset overrides',
@@ -1071,9 +1069,9 @@ const PROJECTS = [
       'Discovered how deltatime and framerate calculations work',
       'Created collision components and controller components for every single object in the game',
       'Designed a gameplay state machine to track game progress',
-      'Made a coin collecting system to tracked player\u2019s points',
+      'Made a coin collecting system to track the player\u2019s points',
       'Hooked up the score count, lives count, and win/lose state to display output on the FPGA board',
-      'Hand drew all sprite assets using Aeseprite, and then converted them to ROM files using a Python script so Verilog could use the drawings as sprites'
+      'Hand drew all sprite assets using Aseprite, and then converted them to ROM files using a Python script so Verilog could use the drawings as sprites'
     ],
     hard: [
       'Verilog was not meant for game development! Using it was quite a challenge',
@@ -1403,4 +1401,4 @@ window.addEventListener('hashchange', () => show(location.hash.slice(1)));
 show(location.hash.slice(1) || 'home');
 </script>
 </body>
-</html> 
+</html>
