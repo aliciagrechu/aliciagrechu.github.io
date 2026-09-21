@@ -1059,7 +1059,7 @@ const PROJECTS = [
     id: 'fpga',
     title: 'Mario on an FPGA',
     kind: 'hw',
-    tags: ['Team project', 'Verilog', 'Spring 2026'],
+    tags: ['Team of 2', 'Verilog', 'Spring 2026'],
     cover: 'mario-scene-1.png',
     video: null,
     blurb: 'A 2D Super Mario Bros recreation written in Verilog that uses an FPGA board for a controller, drawing to a VGA output display directly from hardware. No engine and no processor underneath it, just logic. It\u2019s buggy, but it\u2019s still one of my favorite things I\u2019ve worked on.',
@@ -1084,6 +1084,33 @@ const PROJECTS = [
     ],
     links: [
       { label: 'View on GitHub', url: 'https://github.com/aliciagrechu/EE354-FinalProject' }
+    ]
+  },
+  {
+    id: 'spotify',
+    title: 'Spotify LED Visualizer',
+    kind: 'hw',
+    tags: ['Team of 2', 'Python, Raspberry Pi', 'Spring 2026'],
+    cover: null,
+    video: null,
+    blurb: 'Pick a song and the RPi lights up to match its mood. A small web app searches Spotify, analyzes the song\u2019s audio, classifies its tone, and sends the result to a Raspberry Pi that changes an LED\u2019s color, all while the song starts playing directly on your Spotify app.',
+    didLabel: 'How it works',
+    did: [
+      'A Flask web app for searching songs and starting playback through the Spotify API',
+      'Audio downloaded with yt-dlp and analyzed with librosa to extract its audio features',
+      'A tone classifier that sorts each song into one of four moods, tested against a set of labeled songs for accuracy',
+      'An MQTT publisher that sends the tone over the network to a Raspberry Pi running a Mosquitto broker',
+      'An LED controller on the Pi that is wired to switch colors to match each song\u2019s tone'
+    ],
+    hard: [
+      'Our original plan was to fully use Spotify API data to analyze each songs data as they used to store information about each song within their own database. However, we discovered that Spotify has depreciated this feature in late 2024, so we had to adopt a new way of analyzing songs to determine their tone. This is where YouTube and yt-dlp came in clutch'
+    ],
+    took: [
+      'Gained hands on experience with integrating software and hardware together',
+      'Learned how OAuth works: client credentials, user authorization, and access/refresh tokens'
+    ],
+    links: [
+      { label: 'View on GitHub', url: 'https://github.com/aliciagrechu/EE250-Final-Project' }
     ]
   },
   {
