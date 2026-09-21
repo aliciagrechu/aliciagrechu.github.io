@@ -1095,7 +1095,6 @@ const PROJECTS = [
     cover: 'pong.png',
     video: null,
     blurb: 'Pong, written from scratch in C++. No engine, no AI assistance, every line mine.',
-    note: 'Needs your words: what you had to build yourself here (game loop, collision, input, scoring), and what surprised you.',
     did: [
       'A hand-written game loop that runs ProcessInput, UpdateGame, and GenerateOutput every frame, plus initialization and shutdown',
       'Frame-rate-independent movement using delta time calculated from SDL_GetTicks, the difference between this frame\u2019s time and the previous frame\u2019s',
@@ -1118,8 +1117,7 @@ const PROJECTS = [
     tags: ['Solo', 'C++', 'Fall 2026'],
     cover: 'asteroid.png',
     video: null,
-    blurb: 'Asteroids, written from scratch in C++.',
-    note: 'Needs your words: vector movement, screen wrapping, how you handled splitting asteroids and collision.',
+    blurb: 'Asteroids, written from scratch in C++. No engine, no AI assistance, every line mine.',
     did: [
       'A hybrid component model where an Actor has a vector of component pointers but is also inheritable',
       'A main Actor class and Component class (reused in my future C++ games), as well as subclasses like "Ship" and "CollisionComponent"',
@@ -1131,7 +1129,7 @@ const PROJECTS = [
     ],
     hard: [],
     took: [
-      'Foundational understanding of how classes and subclasses work when it comes to raw game programming. I was pretty familiar with Unity before taking this class, so I feel like I\u2019m also building my understanding of how game engines work behind the scenes',
+      'Foundational understanding of how classes and subclasses work when it comes to raw game programming. I was pretty familiar with Unity before taking this class, so I feel like I\u2019 also built my understanding of how game engines work behind the scenes',
     ],
     links: []
   },
@@ -1143,13 +1141,12 @@ const PROJECTS = [
     tags: ['Solo', 'C++', 'Fall 2026'],
     cover: 'frogger.png',
     video: null,
-    blurb: 'Frogger, written from scratch in C++.',
-    note: 'Needs your words: grid movement, the lane and timing system, collision against moving obstacles.',
+    blurb: 'Frogger, written from scratch in C++. No engine, no AI assistance, every line mine.',
     did: [
       'A level loader that reads a text file where each character represents a 32x32 square in a grid, spawning cars, trucks, logs, the frog, and the goal',
       'Vehicle, Log, and Frog actor subclasses, as well as a new Wrap component to make logs and vehicles wrap around the screen as they move',
       'An AABB collision component with GetMin, GetMax, Intersect, and GetMinOverlap, verified against unit tests on GitHub Actions',
-      'Frog death and respawn: getting hit or missing a log in the water leaves a DeadFrog at the spot and repositions the frog to the start',
+      'Frog death and respawn: getting hit or missing a log in the water (moving collision detection) leaves a DeadFrog at the spot and repositions the frog to the start',
       'Riding logs across the river',
       'A "safe driver" feature: Vehicles will move slower when the frog is in front of them, which is implemented using scalar projection'
     ],
