@@ -919,6 +919,7 @@
       <h2>Get in touch!</h2>
       <div class="links">
         <a class="link" href="mailto:aliciagrechu@gmail.com">Email</a>
+        <a class="link" href="alicia-grechu-resume.pdf" target="_blank" rel="noopener">Resume</a>
         <a class="link" href="https://github.com/aliciagrechu" target="_blank" rel="noopener">GitHub</a>
         <a class="link" href="https://www.linkedin.com/in/alicia-grechu/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
@@ -1031,7 +1032,7 @@ const PROJECTS = [
     title: 'Nicholas: A Lost Penguin',
     kind: 'studio',
     tags: ['Programming lead', 'Unreal Engine', 'Summer 2026 – now'],
-    cover: 'lost-penguin.png',
+    cover: 'lost-penguin.jpg',
     video: null,
     blurb: 'I joined an indie startup studio as a gameplay programming intern on a narrative adventure game over the summer. I stayed on with the team into the fall semester, and now lead the entire programming department.',
     did: [
@@ -1116,7 +1117,7 @@ const PROJECTS = [
     title: 'Spotify LED Visualizer',
     kind: 'hw',
     tags: ['Team of 2', 'Python, Raspberry Pi', 'Spring 2026'],
-    cover: 'spotipi.png,
+    cover: 'spotipi.png',
     video: null,
     blurb: 'Pick a song and the RPi lights up to match its mood. A small web app searches Spotify, analyzes the song\u2019s audio, classifies its tone, and sends the result to a Raspberry Pi that changes an LED\u2019s color, all while the song starts playing directly on your Spotify app.',
     didLabel: 'How it works',
@@ -1136,6 +1137,27 @@ const PROJECTS = [
     ],
     links: [
       { label: 'View on GitHub', url: 'https://github.com/aliciagrechu/EE250-Final-Project' }
+    ]
+  },
+  {
+    id: 'fifo',
+    title: 'FIFO — Smart Fridge',
+    kind: 'hw',
+    tags: ['Team project', 'USC Makers', 'Sep 2025 – May 2026'],
+    cover: null,
+    video: null,
+    blurb: 'A smart fridge that keeps track of what\u2019s inside and when it expires, paired with a Unity companion app that turns eating your food before it goes bad into a game. Built with USC Makers over two semesters.',
+    note: 'Needs your words: which parts were yours, what was hard, and what you took away. Then swap "How it works" for "What I built" if you owned most of it.',
+    didLabel: 'How it works',
+    did: [
+      'Hardware and software integrated together: sensors, cameras, and barcode scanning, with the scanning side built in React Native, to track inventory and expiration dates',
+      'Python machine learning and computer vision to detect when items get used and update a live database',
+      'A Unity companion app with calendar tracking and avatar customization, built to nudge people into eating food before it expires and cut down on waste'
+    ],
+    hard: [],
+    took: [],
+    links: [
+      { label: 'View on GitHub', url: 'https://github.com/uscmakers/FIFO' }
     ]
   },
   {
