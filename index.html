@@ -455,6 +455,10 @@
   .cart-red   { border-left-color: var(--red); }
   .cart-gold  { border-left-color: var(--gold); }
 
+  /* Past roles: present but quieter than the current ones. */
+  .cart.is-past { opacity: 0.78; }
+  .cart.is-past:hover { opacity: 1; }
+
   .skills {
     list-style: none;
     display: flex;
@@ -883,15 +887,25 @@
 
     <div class="shelf">
       <div>
-        <h2>Where I am right now</h2>
+        <h2>Experience</h2>
         <button class="cart cart-green" type="button" data-role="startup">
           <b>Programming Lead</b>
-          <small>indie game startup</small>
+          <small>Fear Elements · Jun 2026 – now</small>
           <span class="cart-more">more</span>
         </button>
         <button class="cart cart-blue" type="button" data-role="openalpha">
           <b>VP of Technology</b>
-          <small>Open Alpha eboard</small>
+          <small>Open Alpha · Sep 2025 – now</small>
+          <span class="cart-more">more</span>
+        </button>
+        <button class="cart cart-gold is-past" type="button" data-role="makers">
+          <b>Software Engineer</b>
+          <small>USC Makers · Sep 2025 – May 2026</small>
+          <span class="cart-more">more</span>
+        </button>
+        <button class="cart cart-red is-past" type="button" data-role="robofun">
+          <b>Junior Mentor</b>
+          <small>Robofun · Nov 2024 – Aug 2025</small>
           <span class="cart-more">more</span>
         </button>
       </div>
@@ -1348,7 +1362,7 @@ const ROLES = {
     title: 'Programming Lead',
     kind: 'studio',
     tags: ['Indie game startup', 'Unreal Engine', 'Summer 2026 – now'],
-    blurb: 'I joined over the summer as a gameplay programming intern and now I lead the programming team! I still contribute to the codebase as much as I can, but the main part of my job now is keeping the programming team moving.',
+    blurb: 'I joined Fear Elements Studio over the summer as a gameplay programming intern and now I lead the programming team! I still contribute to the codebase as much as I can, but the main part of my job now is keeping the programming team moving.',
     didLabel: 'What I do',
     did: [
       'Designing and handing out tasks for the programming team during each two week sprint',
@@ -1359,6 +1373,32 @@ const ROLES = {
       'Interviewing new programming interns'
     ]
   }
+};
+
+ROLES.makers = {
+  title: 'Software Engineer',
+  kind: 'hw',
+  tags: ['USC Makers', 'Sep 2025 – May 2026'],
+  blurb: 'USC Makers is a student hardware organization where teams take an idea from sketch to working prototype. I spent the year on FIFO, the smart fridge attachment project, building where the hardware and the software meet.',
+  didLabel: 'What I did',
+  did: [
+    'Worked with microcontrollers, Arduino and Raspberry Pi, alongside the software side in C++, C#, Python and Unity',
+    'Rapid prototyping with an interdisciplinary team',
+    'Integrating hardware and software so the two halves actually talked to each other'
+  ]
+};
+
+ROLES.robofun = {
+  title: 'Junior Mentor',
+  kind: 'club',
+  tags: ['Vision Education and Media, Robofun', 'New York', 'Nov 2024 – Aug 2025'],
+  blurb: 'I taught STEM to PreK\u20138 students in New York: Python, robotics, circuitry and game design. This was where I strengthened my ability build curriculum and explain technical ideas to people who have never seen them before, which is a lot of what I do now when I teach the Unity curriculum at Open Alpha and mentor programmers at FES.',
+  didLabel: 'What I did',
+  did: [
+    'Taught Python programming, robotics, circuitry and game design',
+    'Wrote lesson plans, gave hands-on guidance, and managed a classroom',
+    'Mentored students to build their confidence along with their technical and problem-solving skills'
+  ]
 };
 
 document.querySelectorAll('[data-role]').forEach(btn => {
