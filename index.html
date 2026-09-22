@@ -440,6 +440,13 @@
     font-family: var(--display);
     font-weight: 400;
     font-size: 1.02rem;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 560px) {
+    .cart b { white-space: normal; }
+    .cart small { margin-left: 0; white-space: normal; }
+    .cart { flex-wrap: wrap; }
   }
 
   .cart small {
@@ -479,7 +486,7 @@
      CONTACT
      ============================================================ */
   .contact {
-    margin-top: clamp(48px, 7vw, 80px);
+    margin-top: clamp(28px, 4vw, 40px);
     padding: clamp(24px, 4vw, 36px);
     background-color: var(--paper-2);
     border: 3px solid var(--ink);
@@ -924,20 +931,21 @@
           <li class="skill">Organization</li>
           <li class="skill">Teamwork</li>
         </ul>
+
+      <div class="contact">
+        <h2>Get in touch!</h2>
+        <div class="links">
+          <a class="link" href="mailto:aliciagrechu@gmail.com">Email</a>
+          <a class="link" href="alicia-grechu-resume.pdf" target="_blank" rel="noopener">Resume</a>
+          <a class="link" href="https://github.com/aliciagrechu" target="_blank" rel="noopener">GitHub</a>
+          <a class="link" href="https://www.linkedin.com/in/alicia-grechu/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
       </div>
     </div>
 
     <div class="deco" id="deco-home"></div>
 
-    <div class="contact">
-      <h2>Get in touch!</h2>
-      <div class="links">
-        <a class="link" href="mailto:aliciagrechu@gmail.com">Email</a>
-        <a class="link" href="alicia-grechu-resume.pdf" target="_blank" rel="noopener">Resume</a>
-        <a class="link" href="https://github.com/aliciagrechu" target="_blank" rel="noopener">GitHub</a>
-        <a class="link" href="https://www.linkedin.com/in/alicia-grechu/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </div>
 
   </div>
 </section>
