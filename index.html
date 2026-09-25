@@ -560,6 +560,27 @@
     flex: none;
   }
 
+  /* Heading above each project grid. */
+  .grid-head {
+    font-family: var(--display);
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 6px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .grid-note {
+    color: var(--ink-soft);
+    font-size: 0.94rem;
+    margin-bottom: 20px;
+    max-width: 58ch;
+  }
+
+  /* Breathing room between the two sections. */
+  .grid + .grid-head { margin-top: clamp(52px, 7vw, 84px); }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -625,6 +646,21 @@
     background-color: var(--paper-2);
     border: 2px solid var(--ink);
     padding: 4px 8px 3px;
+  }
+
+  /* Genre label pinned to the artwork. */
+  .tile-genre {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    font-family: var(--pixel);
+    font-size: 0.58rem;
+    line-height: 1;
+    padding: 5px 8px 4px;
+    color: var(--ink);
+    background-color: var(--paper);
+    border: 2px solid var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
   }
 
   .tile-band {
@@ -837,6 +873,7 @@
     .grid { grid-template-columns: 1fr 1fr; gap: 14px; }
     .tile-cap { padding: 10px; }
     .tile-cap h3 { font-size: 0.86rem; }
+    .tile-genre { font-size: 0.52rem; left: 6px; bottom: 6px; padding: 4px 6px 3px; }
   }
 </style>
 </head>
@@ -946,7 +983,13 @@
       <span class="legend-item"><i class="swatch" style="background:var(--plum)"></i> Hardware</span>
     </div>
 
-    <div class="grid" id="grid"></div>
+    <h2 class="grid-head">Games</h2>
+    <p class="grid-note">Club team games, studio work, game jams, and the games I've built from scratch in C++.</p>
+    <div class="grid" id="grid-games"></div>
+
+    <h2 class="grid-head">Engineering</h2>
+    <p class="grid-note">Projects where the hardware and the software had to meet in the middle.</p>
+    <div class="grid" id="grid-eng"></div>
 
     <div class="deco" id="deco-work"></div>
 
@@ -975,60 +1018,8 @@
    ================================================================== */
 const PROJECTS = [
   {
-    id: 'llm',
-    title: 'Large Language Mimic',
-    kind: 'club',
-    tags: ['Gameplay programmer', 'Unity, C#', 'Jan–May 2026'],
-    cover: 'projects/llm-cover.jpg',
-    video: null,
-    blurb: 'A satirical 2D browser game where you impersonate an AI chatbot to help a local senator\u2019s campaign. Every minigame, from redacting files to cleaning up photos, is a chance to help him or quietly sink him. The dialogue branches and the ending depends on what you chose.',
-    did: [
-      'Core gameplay mechanics and the systems logic underneath them',
-      'NPC behavior',
-      'UI and player feedback',
-      'Implemented character animations'
-    ],
-    hard: [
-      'Wiring several gameplay systems together across a large team',
-      'Getting the minigame scenes to hand off to each other cleanly',
-      'Game / scene sequencing'
-    ],
-    took: [
-      'Gained more experience using Unity',
-      'Built upon my understanding of integrating various gameplay systems',
-      'Keeping code organized when a lot of people are working on the same project'
-    ],
-    links: [
-      { label: 'Play on itch.io', url: 'https://open-alpha-usc.itch.io/large-language-mimic' }
-    ]
-  },
-  {
-    id: 'neuromancer',
-    title: 'Neuromancer',
-    kind: 'club',
-    tags: ['Gameplay programmer', 'Unity, C#', 'Sep–Dec 2025'],
-    cover: 'projects/neuromancer-cover.jpg',
-    video: 'https://www.youtube.com/embed/jCNF8_JqKMw',
-    blurb: 'A 2D fantasy game where you play as a wizard with the goal of treating monsters using therapy and potions. You have one week to converse with various creatures and diagnose them using your trusty book of ailments, and you treat them with a mix of advice and potions you brew yourself.',
-    did: [
-      'Object interaction systems for books and potions',
-      'Menus, the day system, and the timers driving it',
-    ],
-    hard: [
-      'Player movement and collision against Unity\u2019s physics',
-      'Making my systems line up with everyone else\u2019s'
-    ],
-    took: [
-      'My first real taste of building a game and working with a large, structured team',
-      'Writing modular gameplay code',
-      'How dialogue systems in games work'
-    ],
-    links: [
-      { label: 'Play on itch.io', url: 'https://open-alpha-usc.itch.io/neuromancer' }
-    ]
-  },
-  {
     id: 'adventure',
+    genre: '3D narrative adventure',
     title: 'Nicholas: A Lost Penguin',
     kind: 'studio',
     tags: ['Programming lead', 'Unreal Engine', 'Summer 2026 – now'],
@@ -1057,7 +1048,63 @@ const PROJECTS = [
     links: []
   },
   {
+    id: 'llm',
+    genre: '2D satirical strategy',
+    title: 'Large Language Mimic',
+    kind: 'club',
+    tags: ['Gameplay programmer', 'Unity, C#', 'Jan–May 2026'],
+    cover: 'projects/llm-cover.jpg',
+    video: null,
+    blurb: 'A satirical 2D browser game where you impersonate an AI chatbot to help a local senator\u2019s campaign. Every minigame, from redacting files to cleaning up photos, is a chance to help him or quietly sink him. The dialogue branches and the ending depends on what you chose.',
+    did: [
+      'Core gameplay mechanics and the systems logic underneath them',
+      'NPC behavior',
+      'UI and player feedback',
+      'Implemented character animations'
+    ],
+    hard: [
+      'Wiring several gameplay systems together across a large team',
+      'Getting the minigame scenes to hand off to each other cleanly',
+      'Game / scene sequencing'
+    ],
+    took: [
+      'Gained more experience using Unity',
+      'Built upon my understanding of integrating various gameplay systems',
+      'Keeping code organized when a lot of people are working on the same project'
+    ],
+    links: [
+      { label: 'Play on itch.io', url: 'https://open-alpha-usc.itch.io/large-language-mimic' }
+    ]
+  },
+  {
+    id: 'neuromancer',
+    genre: '2D narrative sim',
+    title: 'Neuromancer',
+    kind: 'club',
+    tags: ['Gameplay programmer', 'Unity, C#', 'Sep–Dec 2025'],
+    cover: 'projects/neuromancer-cover.jpg',
+    video: 'https://www.youtube.com/embed/jCNF8_JqKMw',
+    blurb: 'A 2D fantasy game where you play as a wizard with the goal of treating monsters using therapy and potions. You have one week to converse with various creatures and diagnose them using your trusty book of ailments, and you treat them with a mix of advice and potions you brew yourself.',
+    did: [
+      'Object interaction systems for books and potions',
+      'Menus, the day system, and the timers driving it',
+    ],
+    hard: [
+      'Player movement and collision against Unity\u2019s physics',
+      'Making my systems line up with everyone else\u2019s'
+    ],
+    took: [
+      'My first real taste of building a game and working with a large, structured team',
+      'Writing modular gameplay code',
+      'How dialogue systems in games work'
+    ],
+    links: [
+      { label: 'Play on itch.io', url: 'https://open-alpha-usc.itch.io/neuromancer' }
+    ]
+  },
+  {
     id: 'jam',
+    genre: '3D escape room',
     title: 'History Repeats Itself',
     kind: 'jam',
     tags: ['Sole programmer', 'Unity, 3D', '72 hours'],
@@ -1083,6 +1130,7 @@ const PROJECTS = [
   },
   {
     id: 'fpga',
+    genre: '2D platformer',
     title: 'Mario on an FPGA',
     kind: 'hw',
     tags: ['Team of 2', 'Verilog', 'Spring 2026'],
@@ -1242,7 +1290,12 @@ const PROJECTS = [
 
 /* ================= rendering ================= */
 const BAND = { club: 'var(--blue)', studio: 'var(--green)', jam: 'var(--gold)', cpp: 'var(--red)', hw: 'var(--plum)' };
-const grid = document.getElementById('grid');
+/* Which projects live under Engineering. Everything else goes
+   under Games, so a new game needs no change here. */
+const ENGINEERING = ['fifo', 'spotify'];
+
+const gridGames = document.getElementById('grid-games');
+const gridEng   = document.getElementById('grid-eng');
 const overlay = document.getElementById('overlay');
 let lastFocused = null;
 
@@ -1259,6 +1312,7 @@ PROJECTS.forEach(p => {
       ${p.cover
         ? `<img src="${esc(p.cover)}" alt="${esc(p.title)}">`
         : `<div class="tile-art-empty"><span>${p.locked ? 'in progress' : 'art soon'}</span></div>`}
+      ${p.genre ? `<span class="tile-genre">${esc(p.genre)}</span>` : ''}
     </div>
     <div class="tile-cap">
       <h3>${esc(p.title)}</h3>
@@ -1267,12 +1321,16 @@ PROJECTS.forEach(p => {
   // If a cover file is missing or blocked, quietly fall back to the pattern.
   const img = el.querySelector('.tile-art img');
   if (img) {
+    // Swap ONLY the image for the pattern, so the genre label survives.
     img.addEventListener('error', () => {
-      img.parentElement.innerHTML = '<div class="tile-art-empty"><span>art soon</span></div>';
+      const ph = document.createElement('div');
+      ph.className = 'tile-art-empty';
+      ph.innerHTML = '<span>art soon</span>';
+      img.replaceWith(ph);
     });
   }
   if (!p.locked) el.addEventListener('click', () => openSheet(p));
-  grid.appendChild(el);
+  (ENGINEERING.includes(p.id) ? gridEng : gridGames).appendChild(el);
 });
 
 function blockOf(title, items) {
