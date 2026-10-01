@@ -1047,6 +1047,34 @@ const PROJECTS = [
     ],
     links: []
   },
+    {
+    id: 'crease',
+    genre: '3D narrative adventure',
+    title: 'Crease',
+    kind: 'club',
+    tags: ['Gameplay engineer', 'Unity, C#', 'WIP', 'Summer 2026 – Summer 2027'],
+    cover: 'projects/crease.png',
+    video: null,
+    blurb: 'A 3D narrative adventure game where you play as a paper airplane, and the way you fold it directly determines how well (or how badly) it flies and each paper is a written letter part of the narrative storyline. Built as a USC Advanced Games Project. Still in development, and I\u2019m working on it through May 2027.',
+    did: [
+      'Owned the WindSplineTube system and all of the wind spline mechanics',
+      'Implemented the spline tube as a volume around a 3D spline: each frame the player\u2019s position is projected onto the nearest point on the curve, the spline\u2019s tangent at that point sets the direction of the wind, and a centering force pulls the player back toward the curve based on their radial distance from it',
+      'Added reversibility so the wind can flow in either direction along the spline',
+      'Added particle effects to visualize the wind current',
+      'Exposed settings like player speed and centering force in the inspector so designers can tune each tube without touching code',
+      'Improved the camera scripts to fix the issue of the camera clipping the ground and other objects'
+    ],
+    hard: [
+      'Tuning the centering force to be just right. Too strong and the player loses control; too weak and the tube stops guiding them. The goal was for players to feel guided by the wind while still being able to steer and escape the tube at any time',
+      'Getting the particles to appear at the exact right rate and places according to the wind current strength and direction (this was my first time working with a particle system like this)'
+    ],
+    took: [
+      'Deepened my understanding of Unity physics and mathematical applications in 3D games',
+      'How to work on a large scale project and stay on top of production schedule',
+      'The importance of iterating and making changes after playtesting and gathering feedback from designers'
+    ],
+    links: []
+  },
   {
     id: 'llm',
     genre: '2D satirical strategy',
@@ -1208,29 +1236,6 @@ const PROJECTS = [
     ]
   },
   {
-    id: 'pong',
-    code: 'The repository is private because the class sets it up for us. Happy to walk through the code or share it directly on request.',
-    title: 'Pong',
-    kind: 'cpp',
-    tags: ['Solo', 'C++', 'Fall 2026'],
-    cover: 'projects/pong.png',
-    video: null,
-    blurb: 'Pong, written from scratch in C++. No engine, no AI autocomplete.',
-    did: [
-      'A hand-written game loop that runs ProcessInput, UpdateGame, and GenerateOutput every frame, plus initialization and shutdown',
-      'Frame-rate-independent movement using delta time calculated from SDL_GetTicks, the difference between this frame\u2019s time and the previous frame\u2019s',
-      'Collect keyboard input by grabbing the state of the entire keyboard and testing individual keys',
-      'A basic game object model where the ball, paddle, and walls are all "actors", each with a Transform for position and size',
-      'Paddle movement clamped to the screen, with the ball bouncing off the wall and paddle',
-    ],
-    hard: [],
-    took: [
-      'How a game loop actually works underneath an engine like Unity',
-      'Debugging with breakpoints, the call stack, and variable inspection in CLion'
-    ],
-    links: []
-  },
-  {
     id: 'asteroids',
     code: 'The repository is private because the class sets it up for us. Happy to walk through the code or share it directly on request.',
     title: 'Asteroids',
@@ -1250,6 +1255,7 @@ const PROJECTS = [
     ],
     hard: [],
     took: [
+      'How a game loop actually works underneath an engine like Unity',
       'Foundational understanding of how classes and subclasses work when it comes to raw game programming. I was pretty familiar with Unity before taking this class, so I feel like I also built my understanding of how game engines work behind the scenes',
     ],
     links: []
