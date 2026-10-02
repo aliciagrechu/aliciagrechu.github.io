@@ -893,13 +893,7 @@
 <section class="page is-open" id="home">
   <div class="wrap">
 
-
-
-
-
     <div class="hero">
-      <!-- SWAP IN YOUR PHOTO: replace this whole .plate block's inner
-           content with  <img src="me.jpg" alt="Alicia Grechu">  -->
       <div class="plate">
         <img src="me.jpg" alt="Alicia Grechu">
       </div>
@@ -984,7 +978,7 @@
       <span class="legend-item"><i class="swatch" style="background:var(--green)"></i> Studio work</span>
       <span class="legend-item"><i class="swatch" style="background:var(--gold)"></i> Game jams</span>
       <span class="legend-item"><i class="swatch" style="background:var(--red)"></i> C++ from scratch</span>
-      <span class="legend-item"><i class="swatch" style="background:var(--plum)"></i> Hardware</span>
+      <span class="legend-item"><i class="swatch" style="background:var(--plum)"></i> Software Engineering</span>
     </div>
 
     <h2 class="grid-head">Games</h2>
@@ -1010,16 +1004,11 @@
 <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="sheet-title"></div>
 
 <script>
+  
 /* ==================================================================
-   PROJECT DATA — this is the only part you need to edit to add,
-   remove, or rewrite a project.
-
-   kind:   'club' | 'studio' | 'jam' | 'cpp'   (sets the color band)
-   cover:  'images/foo.png'  or  null for the placeholder pattern
-   video:  a YouTube embed URL, or null
-   note:   draft-copy reminder shown in a dashed box. DELETE the
-           whole note line once you've written the real text.
+   PROJECT DATA
    ================================================================== */
+  
 const PROJECTS = [
   {
     id: 'adventure',
@@ -1199,7 +1188,7 @@ const PROJECTS = [
     id: 'spotify',
     title: 'Spotify LED Visualizer',
     kind: 'hw',
-    tags: ['Team of 2', 'Python, Raspberry Pi', 'Spring 2026'],
+    tags: ['Team of 2', 'Software Engineer', 'Python, Raspberry Pi', 'Spring 2026'],
     cover: 'projects/spotipi.jpg',
     video: null,
     blurb: 'Pick a song and the RPi lights up to match its mood. A small web app searches Spotify, analyzes the song\u2019s audio, classifies its tone, and sends the result to a Raspberry Pi that changes an LED\u2019s color, all while the song starts playing directly on your Spotify app.',
@@ -1226,7 +1215,7 @@ const PROJECTS = [
     id: 'fifo',
     title: 'FIFO — Smart Fridge',
     kind: 'hw',
-    tags: ['Team project', 'USC Makers', 'Sep 2025 – May 2026'],
+    tags: ['Team project', 'USC Makers', 'Software Engineer', 'Sep 2025 – May 2026'],
     cover: 'projects/fifo.jpg',
     video: null,
     blurb: 'A smart fridge attachment that tracks what\u2019s inside and when it expires, using sensors, barcode scanning, and computer vision, backed by a Firebase database and a React Native app. A Unity companion app gamifies eating your food before it spoils. Built with USC Makers across two semesters.',
