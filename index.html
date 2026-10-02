@@ -1026,12 +1026,12 @@ const PROJECTS = [
     genre: '3D narrative adventure',
     title: 'Nicholas: A Lost Penguin',
     kind: 'studio',
-    tags: ['Programming lead', 'Unreal Engine/C++', 'Summer 2026 – now'],
+    tags: ['Programming lead', 'Unreal Engine/C++', 'Summer 2026 – Current'],
     cover: 'projects/lost-penguin.jpg',
     video: null,
     blurb: 'I joined an indie startup studio as a gameplay programming intern on a narrative adventure game over the summer. I stayed on with the team into the fall semester, and now lead the entire programming department.',
     did: [
-      'Developed the health system, working on movement system',
+      'Developed the health system, and am currently working on building the movement system',
       'Worked on game UI, including the Gameplay HUD, implementing tab switchers that bind to input actions and on-click button functions',
       'Restructured the codebase to make it more orderly',
       'Facilitate the technical calls that come to how we implement systems',
@@ -1056,7 +1056,7 @@ const PROJECTS = [
     genre: '3D narrative adventure',
     title: 'Crease',
     kind: 'club',
-    tags: ['Gameplay engineer', 'Unity, C#', 'WIP', 'Summer 2026 – Summer 2027'],
+    tags: ['Gameplay engineer', 'Unity, C#', 'WIP', 'Summer 2026 – Current'],
     cover: 'projects/crease.png',
     video: null,
     blurb: 'A 3D narrative adventure game where you play as a paper airplane, and the way you fold it directly determines how well (or how badly) it flies and each paper is a written letter part of the narrative storyline. Built as a USC Advanced Games Project. Still in development, and I\u2019m working on it through May 2027.',
@@ -1075,7 +1075,8 @@ const PROJECTS = [
     took: [
       'Deepened my understanding of Unity physics and mathematical applications in 3D games',
       'How to work on a large scale project and stay on top of production schedule',
-      'The importance of iterating and making changes after playtesting and gathering feedback from designers'
+      'The importance of iterating and making changes after playtesting and gathering feedback from designers',
+      'Learned Perforce, and why large Unity teams use it over Git \u2014 binary assets like models and scenes can\u2019t be merged, so they get locked and checked out instead'
     ],
     links: []
   },
@@ -1212,7 +1213,7 @@ const PROJECTS = [
       'Our original plan was to fully use Spotify API data to analyze each songs data as they used to store information about each song within their own database. However, we discovered that Spotify has depreciated this feature in late 2024, so we had to adopt a new way of analyzing songs to determine their tone. This is where YouTube and yt-dlp came in clutch'
     ],
     took: [
-      'Gained hands on experience with integrating software and hardware together',
+      'Applied MQTT works for sending messages between devices, with my laptop publishing and the Raspberry Pi subscribing through a Mosquitto broker',
       'Learned how OAuth works: client credentials, user authorization, and access/refresh tokens'
     ],
     links: [
@@ -1226,15 +1227,28 @@ const PROJECTS = [
     tags: ['Team project', 'USC Makers', 'Sep 2025 – May 2026'],
     cover: 'projects/fifo.jpg',
     video: null,
-    blurb: 'A smart fridge attachment that keeps track of what\u2019s inside and when it expires, paired with a Unity companion app that turns eating your food before it goes bad into a game. Built with USC Makers over two semesters.',
-    didLabel: 'How it works',
+    blurb: 'A smart fridge attachment that tracks what\u2019s inside and when it expires, using sensors, barcode scanning, and computer vision, backed by a Firebase database and a React Native app. A Unity companion app gamifies eating your food before it spoils. Built with USC Makers across two semesters.',
+    didLabel: 'What I built',
     did: [
-      'Hardware and software integrated together: sensors, cameras, and barcode scanning, with the scanning side built in React Native, to track inventory and expiration dates',
-      'Python machine learning and computer vision to detect when items get used and update a live database',
-      'A Unity companion app with calendar tracking and avatar customization, built to nudge people into eating food before it expires and cut down on waste'
+      'A Detectron2 model trained to detect containers in frame, which crops each one it finds and feeds that crop into the vision language model, so the VLM only has to identify one item at a time instead of parsing the whole fridge at once',
+      'Inventory diffing between two videos, comparing the before and after so the system knows what was actually taken out of the fridge, not just what\u2019s sitting in it',
+      'The training data behind the detection model, annotating images myself in Roboflow and exporting in COCO format so it learned the actual containers we were using',
+      'Cloud GPU processing for the ML and VLM stages',
+      'The Unity companion app\u2019s expiration timeline and streak system, which tracks how many days you\u2019ve gone without letting anything expire and logs your best streak',
+      'The avatar customization system, the reward side of the loop that gives people a reason to keep opening the app',
+      'A Python script that pulls from Firebase and a Flask API connecting the food database to the Unity game, so the app and the game read the same inventory',
+      'Connecting subsystems I didn\u2019t write \u2014 the VLM, barcode scanning, sensors, and Firebase setup were teammates\u2019 work, and my job was wiring my detection model and the Unity app into them'
     ],
-    hard: [],
-    took: [],
+    hard: [
+      'Learning everything as I went. I had never worked with machine learning before, never used Python in this kind of context, and this was my first time really integrating hardware and software together',
+      'Smoothly integrating together the Firebase database, sensor and camera logic, and C#/Unity game logic to make one cohesive project',
+      'Getting the machine learning processing to run at a reasonable speed. My laptop only has integrated graphics so our script took forever, and we moved to a teammate\u2019s laptop that had an Nvidia GPU, which helped. Eventually we realized a cloud GPU would be faster than any of our own hardware, so we switched to that'
+    ],
+    took: [
+      'Hands on application of hardware - software integration in a long-term project',
+      'Gained skills related to training and implementing machine learning algorithms',
+      'Built upon my understanding of how separate subsystems come together into one working product',
+    ],
     links: [
       { label: 'View on GitHub', url: 'https://github.com/uscmakers/FIFO' }
     ]
