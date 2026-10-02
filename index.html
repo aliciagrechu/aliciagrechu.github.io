@@ -906,7 +906,7 @@
 
       <div>
         <h1 class="hero-title">Hi, I'm Alicia!</h1>
-        <p class="hero-role">gameplay programmer &amp; programming lead</p>
+        <p class="hero-role">gameplay programmer &amp; programming lead &amp; software engineer</p>
 
         <div class="prose">
           <p class="pull">A passionate Computer Engineering and Computer Science major at USC, minoring in Video Game Programming.</p>
@@ -946,11 +946,10 @@
           <li class="skill">Java</li>
           <li class="skill">Git/GitHub</li>
           <li class="skill">Perforce</li>
+          <li class="skill">Teamwork</li>
           <li class="skill">Gameplay Systems</li>
           <li class="skill">Agile/Scrum</li>
           <li class="skill">Leadership</li>
-          <li class="skill">Organization</li>
-          <li class="skill">Teamwork</li>
         </ul>
       </div>
     </div>
@@ -1242,7 +1241,7 @@ const PROJECTS = [
   },
   {
     id: 'asteroids',
-    code: 'The repository is private because the class sets it up for us. Happy to walk through the code or share it directly on request.',
+    code: 'The repository is private due to USC course academic-integrity policies. Happy to walk through the code directly on request.',
     title: 'Asteroids',
     kind: 'cpp',
     tags: ['Solo', 'C++', 'Fall 2026'],
@@ -1267,13 +1266,13 @@ const PROJECTS = [
   },
   {
     id: 'frogger',
-    code: 'The repository is private because the class sets it up for us. Happy to walk through the code or share it directly on request.',
+    code: 'The repository is private due to USC course academic-integrity policies. Happy to walk through the code directly on request.',
     title: 'Frogger',
     kind: 'cpp',
     tags: ['Solo', 'C++', 'Fall 2026'],
     cover: 'projects/frogger.jpg',
     video: null,
-    blurb: 'Frogger, written from scratch in C++. No engine, no AI autocomplete.',
+    blurb: 'Frogger, written from scratch in C++ and SDL3. No engine or AI autocomplete.',
     did: [
       'A level loader that reads a text file where each character represents a 32x32 square in a grid, spawning cars, trucks, logs, the frog, and the goal',
       'Vehicle, Log, and Frog actor subclasses, as well as a new Wrap component to make logs and vehicles wrap around the screen as they move',
@@ -1287,6 +1286,62 @@ const PROJECTS = [
       'How to use / process a text file as the level map',
       'Death and respawn functionality',
       'How to apply math, specifically linear algebra, to game programming'
+    ],
+    links: []
+  },
+    {
+    id: 'mario',
+    code: 'The repository is private due to USC course academic-integrity policies. Happy to walk through the code directly on request.',
+    title: 'Super Mario Bros',
+    kind: 'cpp',
+    tags: ['Solo', 'C++', 'Fall 2026'],
+    cover: 'projects/mario.png',
+    video: null,
+    blurb: 'A side-scrolling Super Mario Bros platformer in C++ and SDL3, no engine or AI autocomplete. Built on top of the actor/component model and AABB collision code from my earlier labs, then extended with gravity-driven player physics, a scrolling camera, enemy AI, frame-based sprite animation, and my first pass at game audio.',
+    did: [
+      'Data-driven level loading, parsing a text file into a tile grid and spawning a Block actor with the matching texture and collision bounds for each character',
+      'A PlayerMove component integrating gravity into vertical velocity each frame and scaling all motion by delta time, with a jump impulse gated behind an in-air flag so jumps can\u2019t be chained',
+      'Per-frame AABB collision resolution using minimum-overlap tests to find the penetration axis and classify the contact side, so Mario lands, bonks, or gets blocked correctly',
+      'Goomba NPCs with their own movement and collision \u2014 patrol, direction reversal on side contact, the same gravity as the player \u2014 plus stomp-versus-death resolution against Mario, decided by contact side and whether he\u2019s airborne',
+      'A scrolling camera clamped against backtracking, plus proximity spawners that instantiate enemies only when the player gets close and keep the rest out of the update loop',
+      'An AnimatedSprite component advancing clip playback off a delta-time timer, and the animation state selection for Mario across idle, run, jump, and death',
+      'Audio through SDL3_mixer: cached clips, one-off effects for jumping and stomping, and looping music that swaps to the death or stage-clear cue'
+    ],
+    hard: [
+      'NPC collision detection was tricky at first; ensuring Goombas change direction the correct way based on collision sides',
+      'Deciding whether certain collision code should reside in Mario vs. Goomba code files'
+    ],
+    took: [
+      'Learned how to implement a sidescrolling camera',
+      'Implemented a game audio system for the first time!',
+      'Built an understanding of how animations work together with actors in C++ games'
+    ],
+    links: []
+  },
+  {
+    id: 'pacman',
+    code: 'The repository is private because the class sets it up for us. Happy to walk through the code or share it directly on request.',
+    title: 'Pac-Man',
+    kind: 'cpp',
+    tags: ['Solo', 'C++', 'Fall 2026'],
+    cover: 'projects/pacman.png',
+    video: null,
+    blurb: 'A Pac-Man recreation in C++ and SDL3, no engine or AI autocomplete. Most of the engineering here was the ghost AI: a four-state finite state machine per ghost driving greedy traversal of a path-node graph, with a different targeting heuristic behind each of the four personalities.',
+    did: [
+      'Ghost navigation across a graph of PathNode actors, interpolating along each edge per frame from direction, speed, and delta time',
+      'Greedy pathfinding evaluated at every intersection \u2014 commit to whichever neighbor sits nearest the current target rather than precomputing a route',
+      'A four-state finite state machine (Scatter, Chase, Frightened, Dead) with per-state speeds and per-state rules on which node types are traversable',
+      'Four distinct chase heuristics, one per ghost: Blinky targets Pac-Man directly, Pinky a point ahead of his facing, Inky doubles a vector from Blinky through that point, and Clyde breaks off once he closes in',
+      'An AudioSystem wrapper over SDL3_mixer, turning fire-and-forget playback into a managed pool of tracks with handle-based pause, resume, stop, and per-frame channel reclamation',
+    ],
+    hard: [
+      'Setting up the sound system wrapper that manages tracks and replaces older tracks using prioritization as neccessary',
+      'Determining the best places to break up the code into smaller helper functions to avoid spaghetti code'
+    ],
+    took: [
+      'Learned how greedy algorithms apply to game development, specifically in pathfinding',
+      'Built upon my understanding of state machines in games',
+      'Learned the difference between using a sound API and wrapping one'
     ],
     links: []
   }
