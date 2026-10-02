@@ -1256,7 +1256,7 @@ const PROJECTS = [
     tags: ['Solo', 'C++', 'Fall 2026'],
     cover: 'projects/asteroid.jpg',
     video: null,
-    blurb: 'Asteroids, written from scratch in C++. No engine, no AI autocomplete.',
+    blurb: 'A recreation of Asteroids, written from scratch in C++. No engine, no AI autocomplete.',
     did: [
       'A hybrid component model where an Actor has a vector of component pointers but is also inheritable',
       'A main Actor class and Component class (reused in my future C++ games), as well as subclasses like "Ship" and "CollisionComponent"',
@@ -1281,7 +1281,7 @@ const PROJECTS = [
     tags: ['Solo', 'C++', 'Fall 2026'],
     cover: 'projects/frogger.jpg',
     video: null,
-    blurb: 'Frogger, written from scratch in C++ and SDL3. No engine or AI autocomplete.',
+    blurb: 'A recreation of Frogger, written from scratch in C++ and SDL3. No engine or AI autocomplete.',
     did: [
       'A level loader that reads a text file where each character represents a 32x32 square in a grid, spawning cars, trucks, logs, the frog, and the goal',
       'Vehicle, Log, and Frog actor subclasses, as well as a new Wrap component to make logs and vehicles wrap around the screen as they move',
@@ -1306,7 +1306,7 @@ const PROJECTS = [
     tags: ['Solo', 'C++', 'Fall 2026'],
     cover: 'projects/mario.png',
     video: null,
-    blurb: 'A side-scrolling Super Mario Bros platformer in C++ and SDL3, no engine or AI autocomplete. Built on top of the actor/component model and AABB collision code from my earlier labs, then extended with gravity-driven player physics, a scrolling camera, enemy AI, frame-based sprite animation, and my first pass at game audio.',
+    blurb: 'A recreation of the side-scrolling Super Mario Bros platformer in C++ and SDL3, no engine or AI autocomplete. Built on top of the actor/component model and AABB collision code from my earlier labs, then extended with gravity-driven player physics, a scrolling camera, enemy AI, frame-based sprite animation, and my first pass at game audio.',
     did: [
       'Data-driven level loading, parsing a text file into a tile grid and spawning a Block actor with the matching texture and collision bounds for each character',
       'A PlayerMove component integrating gravity into vertical velocity each frame and scaling all motion by delta time, with a jump impulse gated behind an in-air flag so jumps can\u2019t be chained',
@@ -1335,7 +1335,7 @@ const PROJECTS = [
     tags: ['Solo', 'C++', 'Fall 2026'],
     cover: 'projects/pacman.png',
     video: null,
-    blurb: 'A Pac-Man recreation in C++ and SDL3, no engine or AI autocomplete. Most of the engineering here was the ghost AI: a four-state finite state machine per ghost driving greedy traversal of a path-node graph, with a different targeting heuristic behind each of the four personalities.',
+    blurb: 'A recreation of Pac-Man recreation in C++ and SDL3, no engine or AI autocomplete. Most of the engineering here was the ghost AI: a four-state finite state machine per ghost driving greedy traversal of a path-node graph, with a different targeting heuristic behind each of the four personalities.',
     did: [
       'Ghost navigation across a graph of PathNode actors, interpolating along each edge per frame from direction, speed, and delta time',
       'Greedy pathfinding evaluated at every intersection \u2014 commit to whichever neighbor sits nearest the current target rather than precomputing a route',
