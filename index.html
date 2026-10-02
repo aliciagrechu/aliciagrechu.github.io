@@ -981,13 +981,17 @@
       <span class="legend-item"><i class="swatch" style="background:var(--plum)"></i> Software Engineering</span>
     </div>
 
-    <h2 class="grid-head">Games</h2>
-    <p class="grid-note">Club team games, studio work, game jams, and the games I've built from scratch in C++.</p>
-    <div class="grid" id="grid-games"></div>
+    <h2 class="grid-head">Featured Games</h2>
+    <p class="grid-note">The work I'm proudest of right now.</p>
+    <div class="grid" id="grid-featured"></div>
 
-    <h2 class="grid-head">Engineering</h2>
+    <h2 class="grid-head">Engineering Projects</h2>
     <p class="grid-note">Projects where the hardware and the software had to meet in the middle.</p>
     <div class="grid" id="grid-eng"></div>
+
+    <h2 class="grid-head">More Games</h2>
+    <p class="grid-note">Club games, game jams, and the games I've written from scratch in C++.</p>
+    <div class="grid" id="grid-more"></div>
 
     <div class="deco" id="deco-work"></div>
 
@@ -1354,18 +1358,31 @@ const PROJECTS = [
 
 /* ================= rendering ================= */
 const BAND = { club: 'var(--blue)', studio: 'var(--green)', jam: 'var(--gold)', cpp: 'var(--red)', hw: 'var(--plum)' };
-/* Which projects live under Engineering. Everything else goes
-   under Games, so a new game needs no change here. */
-const ENGINEERING = ['fifo', 'spotify'];
-
-const gridGames = document.getElementById('grid-games');
-const gridEng   = document.getElementById('grid-eng');
+/* Which projects appear in which section, and in what order.
+   Add a project's id to a list to place it. Anything not listed
+   here falls to the end of the last section, so nothing can
+   silently disappear from the page. */
+const SECTIONS = [
+  { grid: 'grid-featured', ids: ['adventure', 'crease', 'pacman'] },
+  { grid: 'grid-eng',      ids: ['fifo', 'fpga', 'spotify'] },
+  { grid: 'grid-more',     ids: ['frogger', 'mario', 'jam', 'llm', 'asteroids', 'neuromancer'] }
+];
 const overlay = document.getElementById('overlay');
 let lastFocused = null;
 
 const esc = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-PROJECTS.forEach(p => {
+/* Build the display order from SECTIONS, appending any project
+   that wasn't listed so it still shows up somewhere. */
+const BY_ID = new Map(PROJECTS.map(p => [p.id, p]));
+const placed = new Set(SECTIONS.flatMap(s => s.ids));
+const ORDER = SECTIONS.map(s => ({
+  host: document.getElementById(s.grid),
+  items: s.ids.map(id => BY_ID.get(id)).filter(Boolean)
+}));
+ORDER[ORDER.length - 1].items.push(...PROJECTS.filter(p => !placed.has(p.id)));
+
+ORDER.forEach(({ host, items }) => items.forEach(p => {
   const el = document.createElement('button');
   el.type = 'button';
   el.className = 'tile' + (p.locked ? ' is-locked' : '');
@@ -1394,8 +1411,8 @@ PROJECTS.forEach(p => {
     });
   }
   if (!p.locked) el.addEventListener('click', () => openSheet(p));
-  (ENGINEERING.includes(p.id) ? gridEng : gridGames).appendChild(el);
-});
+  if (host) host.appendChild(el);
+}));
 
 function blockOf(title, items) {
   if (!items || !items.length) return '';
